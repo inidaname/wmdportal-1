@@ -74,7 +74,7 @@ export const auth = ({ email, password }) => {
   return (dispatch) => {
     dispatch(authStart());
     axios
-      .post("http://api.wmd.ng/v1/login", { email, password })
+      .post("https://api.wmd.ng/v1/login", { email, password })
       .then((resp) => {
         setTimeout(() => {
           dispatch(authSuccess(resp.data));
@@ -129,7 +129,7 @@ export const register = ({ email, name, password }) => {
   return (dispatch) => {
     dispatch(registerStart());
     axios
-      .post("http://api.wmd.ng/v1/register", { name, email, password })
+      .post("https://api.wmd.ng/v1/register", { name, email, password })
       .then((resp) => {
         console.log(resp, "resp");
         setTimeout(() => {
@@ -182,7 +182,7 @@ export const getCompany = ({ id }) => {
   return (dispatch) => {
     dispatch(getCompanyStart());
     axios
-      .get(`http://api.wmd.ng/v1/company/${id}`)
+      .get(`https://api.wmd.ng/v1/company/${id}`)
       .then((resp) => {
         setTimeout(() => {
           dispatch(getCompanySuccess(resp.data));
@@ -251,11 +251,11 @@ export const registerInstrument = (
   },
   filteredMeasurementCapacity
 ) => {
-  
+
   return (dispatch) => {
     dispatch(registerInstrumentStart());
     axios
-      .post(`http://api.wmd.ng/v1/instrument`, {
+      .post(`https://api.wmd.ng/v1/instrument`, {
         state,
         localGovt,
         city,
@@ -273,11 +273,11 @@ export const registerInstrument = (
         tagNumber,
         approvalCertificate,
         verificationCertificate,
-        additional: filteredMeasurementCapacity[0].additional,
-        amount: filteredMeasurementCapacity[0].amount,
-        maxFee: filteredMeasurementCapacity[0].maxFee,
-        minFee: filteredMeasurementCapacity[0].minFee,
-        sumPrice: filteredMeasurementCapacity[0].sumPrice,
+        additional: filteredMeasurementCapacity[ 0 ].additional,
+        amount: filteredMeasurementCapacity[ 0 ].amount,
+        maxFee: filteredMeasurementCapacity[ 0 ].maxFee,
+        minFee: filteredMeasurementCapacity[ 0 ].minFee,
+        sumPrice: filteredMeasurementCapacity[ 0 ].sumPrice,
       })
       .then((resp) => {
         console.log(resp, "resp");
@@ -328,7 +328,7 @@ export const getRegisteredInstrument = () => {
   return (dispatch) => {
     dispatch(getRegisteredInstrumentStart());
     axios
-      .get(`http://api.wmd.ng/v1/instrument/`, {})
+      .get(`https://api.wmd.ng/v1/instrument/`, {})
       .then((resp) => {
         setTimeout(() => {
           dispatch(getRegisteredInstrumentSuccess(resp.data));
@@ -377,7 +377,7 @@ export const getBills = () => {
   return (dispatch) => {
     dispatch(getBillsStart());
     axios
-      .get(`http://api.wmd.ng/v1/bills/`, {})
+      .get(`https://api.wmd.ng/v1/bills/`, {})
       .then((resp) => {
         setTimeout(() => {
           dispatch(getBillsSuccess(resp.data));
@@ -527,7 +527,7 @@ export const getMeasurement = () => {
   return (dispatch) => {
     dispatch(getMeasurementStart());
     axios
-      .get(`http://api.wmd.ng/v1/feetable/group`)
+      .get(`https://api.wmd.ng/v1/feetable/group`)
       .then((resp) => {
         dispatch(getMeasurementSuccess(resp.data));
       })
@@ -574,7 +574,7 @@ export const getUnitMeasurement = ({ unit }) => {
   return (dispatch) => {
     dispatch(getUnitMeasurementStart());
     axios
-      .get(`http://api.wmd.ng/v1/feetable/group/${unit}`)
+      .get(`https://api.wmd.ng/v1/feetable/group/${unit}`)
       .then((resp) => {
         dispatch(getUnitMeasurementSuccess(resp.data));
       })
@@ -620,7 +620,7 @@ export const getMeasurementCapacity = ({ category, subcategory }) => {
   return (dispatch) => {
     dispatch(getMeasurementCapStart());
     axios
-      .get(`http://api.wmd.ng/v1/feetable/group/${category}/${subcategory}`)
+      .get(`https://api.wmd.ng/v1/feetable/group/${category}/${subcategory}`)
       .then((resp) => {
         dispatch(getMeasurementCapSuccess(resp.data));
       })
